@@ -6,7 +6,6 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
@@ -37,6 +36,12 @@ class TestWidget extends StatefulWidget {
 class _TestWidgetState extends State<TestWidget> {
   bool _active = false;
 
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
+
   void _onTap() {
     _active = !_active;
     setState(() {});
@@ -51,12 +56,8 @@ class _TestWidgetState extends State<TestWidget> {
         // 使用container来规定按钮的背景色和大小
         child: new Center(
           child: new Container(
-            child: new Center(
-              child: new Text(
-                _active ? "Active" : "Inactive",
-                style: new TextStyle(fontSize: 32, color: Colors.white),
-              ),
-            ),
+            // 实现gone/invisible效果，就是根据state构建两个widget，其中一个包含被gone掉的widget，一个不包含，然后根据visibility状态来选择一个显示
+            child: new Row(children: _active ? <Widget>[new Text("1")] : <Widget>[new Text("1"), new Text("2")]),
             width: 200,
             height: 200,
             // Decoration用来通过操作canvas来画背景, [BoxDecoration]是[Decoration]最主要的子类
@@ -70,20 +71,22 @@ class _TestWidgetState extends State<TestWidget> {
 /**
  * [StatelessWidget]的子类直接实现[StatelessWidget.build]方法，不需要通过[State]
  * */
-class TestStatelessWidget extends StatelessWidget{
+class TestStatelessWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return new TestConstructorWidget(number: 1,);
+    return new TestConstructorWidget(
+      number: 1,
+    );
   }
 }
 
-class TestConstructorWidget extends StatelessWidget{
-
+class TestConstructorWidget extends StatelessWidget {
   // 这是个成员变量
   int number;
 
   // 构造函数这样写，是将成员变量与同名的named parameter(具名参数)绑定，外界给同名具名参数赋值，就会对这个成员变量赋值
   // 这种写法要求成员变量不能是私有的
+  // constructor的{}中的参数是具名参数
   TestConstructorWidget({this.number});
 
   @override
