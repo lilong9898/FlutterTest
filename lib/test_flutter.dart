@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart';
 
+/**
+ * 测试一个基本的flutter程序，包括listView和navigator
+ * */
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {

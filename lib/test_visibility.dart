@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
-// 测试控件
+/**
+ * 测试控件的visible和gone的实现方式
+ * */
 void main() {
   runApp(new MyApp());
 }
