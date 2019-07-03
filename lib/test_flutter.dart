@@ -27,7 +27,7 @@ import 'package:english_words/english_words.dart';
  * - resources.arsc
  *
  * flutter的局限性：
- * (1) 官方不提供热更新方案
+ * (1) 官方不提供热更新方案，甚至没有有关的API
  * (2) libflutter.so有8M，isolate_snapshot_data有2M，包大小至少增加10M
  *
  * */
