@@ -28,7 +28,7 @@ import 'package:english_words/english_words.dart';
  *
  * flutter的局限性：
  * (1) 官方不提供热更新方案
- * (2) libflutter.so有8M，kernel_blob.bin有5M，isolate_snapshot_data有2M，包大小至少增加15M
+ * (2) libflutter.so有8M，isolate_snapshot_data有2M，包大小至少增加10M
  *
  * */
 void main() => runApp(MyApp());
