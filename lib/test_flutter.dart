@@ -3,6 +3,33 @@ import 'package:english_words/english_words.dart';
 
 /**
  * 测试一个基本的flutter程序，包括listView和navigator
+ *
+ * 最终生成的apk是flutter_app/build/app/outputs/apk/app.apk
+ * apk结构：
+ *
+ * - lib目录
+ *   - libflutter.so            8M     dart引擎
+ * - assets目录
+ *   - flutter_assets
+ *     - kernel_blob.bin        5M     系统和用户的dart代码的编译产物(dart引擎用字节码)
+ *     - isolate_snapshot_data  2M     系统用于加速isolate功能的启动的代码，固定的
+ *     -
+ *   - images                   ...    图片，包括各个分辨率的
+ *   - fonts                    ...    字体
+ *   - packages                 ...    用来存放依赖库的资源的目录
+ *   - vm_snapshot_data         10k    系统用于加速dart vm启动的代码，固定的
+ *   - FontManifest.json        100B   所有字体资源的清单文件
+ *   - AssetManifest.json       100B   所有资源的清单文件
+ * - res目录
+ * - classes.dex
+ * - META-INF目录
+ * - AndroidManifest.xml
+ * - resources.arsc
+ *
+ * flutter的局限性：
+ * (1) 官方不提供热更新方案
+ * (2) libflutter.so有8M，kernel_blob.bin有5M，isolate_snapshot_data有2M，包大小至少增加15M
+ *
  * */
 void main() => runApp(MyApp());
 
